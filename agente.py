@@ -76,11 +76,6 @@ tools = [
     }
 ]
 
-
-
-def ejecutar_pregunta(pregunta):
-    mensajes = [{"role": "user", "content": pregunta}]
-
 def ejecutar_agente(pregunta):
     mensajes = [{"role": "user", "content": pregunta}]
     fin = False
@@ -115,4 +110,14 @@ def ejecutar_agente(pregunta):
                     nombre = bloque.name    
                     argumentos = bloque.input
                     id_herramienta = bloque.id
+                    resultado = herramientas_map[nombre](**argumentos)
+                    mensajes.append({"role": "assistant", "content": answer.content})
+                    mensajes.append({
+                                        "role": "user",
+                                        "content": [{
+                                            "type": "tool_result",
+                                            "tool_use_id": id_herramienta,
+                                            "content": resultado
+                                        }]
+                                    })
                 
