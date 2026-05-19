@@ -96,16 +96,14 @@ def ejecutar_agente(pregunta):
                              Tenes acceso a las herramientas para realizar el analisis del dataset.
                              Usa las herramientas necesarias para responder preguntas sobre attrition,
                              satisfaccion laboral, salarios y otros indicadores del dataset.
-                             Las columnas disponibles en el dataset son:
-                             Age, Attrition, BusinessTravel, DailyRate, Department, DistanceFromHome, 
-                             Education, EducationField, EmployeeCount, EmployeeNumber, EnvironmentSatisfaction,
-                             Gender, HourlyRate, JobInvolvement, JobLevel, JobRole, JobSatisfaction, 
-                             MaritalStatus, MonthlyIncome, MonthlyRate, NumCompaniesWorked, Over18, 
-                             OverTime, PercentSalaryHike, PerformanceRating, RelationshipSatisfaction, 
-                             StandardHours, StockOptionLevel, TotalWorkingYears, TrainingTimesLastYear, 
-                             WorkLifeBalance, YearsAtCompany, YearsInCurrentRole, YearsSinceLastPromotion, 
-                             YearsWithCurrManager
-                             """,
+                             IMPORTANTE: Nunca hagas preguntas de seguimiento al final de tus respuestas. Nunca sugieras análisis adicionales. Responde únicamente lo que se te preguntó y terminá ahí.
+                             Las columnas disponibles son TODAS las del dataset IBM HR:
+                             Age, Attrition, BusinessTravel, DailyRate, Department, DistanceFromHome,
+                             Education, EducationField, EnvironmentSatisfaction, Gender, HourlyRate, JobInvolvement, 
+                             JobLevel, JobRole, JobSatisfaction, MaritalStatus, MonthlyIncome, MonthlyRate, NumCompaniesWorked, 
+                             OverTime, PercentSalaryHike, PerformanceRating, RelationshipSatisfaction, StockOptionLevel, TotalWorkingYears, 
+                             TrainingTimesLastYear, WorkLifeBalance, YearsAtCompany, YearsInCurrentRole, YearsSinceLastPromotion, YearsWithCurrManager 
+                            """,
                     messages = mensajes,
                     tools = tools
                 )
