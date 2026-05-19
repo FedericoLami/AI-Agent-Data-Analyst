@@ -10,7 +10,10 @@ def obtener_estadisticas(columna):
     return datos
 
 def comparar_grupos(columna_grupo,columna_valor):
-    datos = df.groupby(columna_grupo)[columna_valor].mean().to_string()
+    if pd.api.types.is_numeric_dtype(df[columna_valor]):
+        datos = df.groupby(columna_grupo)[columna_valor].mean().to_string()
+    else:
+        datos = df.groupby(columna_grupo)[columna_valor].value_counts().to_string()
     return datos
 
 def contar_por_categoria(columna):
