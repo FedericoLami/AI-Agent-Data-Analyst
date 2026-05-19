@@ -96,6 +96,15 @@ def ejecutar_agente(pregunta):
                              Tenes acceso a las herramientas para realizar el analisis del dataset.
                              Usa las herramientas necesarias para responder preguntas sobre attrition,
                              satisfaccion laboral, salarios y otros indicadores del dataset.
+                             Las columnas disponibles en el dataset son:
+                             Age, Attrition, BusinessTravel, DailyRate, Department, DistanceFromHome, 
+                             Education, EducationField, EmployeeCount, EmployeeNumber, EnvironmentSatisfaction,
+                             Gender, HourlyRate, JobInvolvement, JobLevel, JobRole, JobSatisfaction, 
+                             MaritalStatus, MonthlyIncome, MonthlyRate, NumCompaniesWorked, Over18, 
+                             OverTime, PercentSalaryHike, PerformanceRating, RelationshipSatisfaction, 
+                             StandardHours, StockOptionLevel, TotalWorkingYears, TrainingTimesLastYear, 
+                             WorkLifeBalance, YearsAtCompany, YearsInCurrentRole, YearsSinceLastPromotion, 
+                             YearsWithCurrManager
                              """,
                     messages = mensajes,
                     tools = tools
@@ -105,19 +114,20 @@ def ejecutar_agente(pregunta):
             fin = True
             return answer.content[0].text
         elif answer.stop_reason == "tool_use":
+            mensajes.append({"role" : "assistant","content" : answer.content})
+            
             for bloque in answer.content:
                 if bloque.type == "tool_use":
                     nombre = bloque.name    
                     argumentos = bloque.input
                     id_herramienta = bloque.id
                     resultado = herramientas_map[nombre](**argumentos)
-                    mensajes.append({"role": "assistant", "content": answer.content})
                     mensajes.append({
-                                        "role": "user",
-                                        "content": [{
-                                            "type": "tool_result",
-                                            "tool_use_id": id_herramienta,
-                                            "content": resultado
-                                        }]
-                                    })
+                        "role": "user",
+                        "content": [{
+                            "type": "tool_result",
+                            "tool_use_id": id_herramienta,
+                            "content": resultado
+                        }]
+                    })
                 
