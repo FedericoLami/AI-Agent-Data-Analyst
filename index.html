@@ -3,86 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agente HR Analytics — IBM</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <title>IBM HR Analytics Agent</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0a0a0f;
-      --surface: #111118;
-      --surface-2: #1a1a24;
-      --surface-3: #22222f;
-      --border: #2a2a3a;
-      --border-2: #353548;
-      --text: #e8e8f0;
-      --text-2: #9090a8;
-      --text-3: #505068;
-      --accent: #6366f1;
-      --accent-2: #818cf8;
-      --accent-glow: rgba(99, 102, 241, 0.15);
-      --green: #22c55e;
-      --green-dim: rgba(34, 197, 94, 0.1);
-      --mono: 'JetBrains Mono', monospace;
-      --sans: 'Inter', sans-serif;
+      --ibm-blue: #0f62fe;
+      --ibm-blue-dark: #0043ce;
+      --ibm-blue-light: #4589ff;
+      --ibm-blue-10: #edf5ff;
+      --ibm-blue-20: #d0e2ff;
+      --ibm-gray-100: #161616;
+      --ibm-gray-90: #262626;
+      --ibm-gray-80: #393939;
+      --ibm-gray-70: #525252;
+      --ibm-gray-50: #8d8d8d;
+      --ibm-gray-30: #c6c6c6;
+      --ibm-gray-20: #e0e0e0;
+      --ibm-gray-10: #f4f4f4;
+      --ibm-white: #ffffff;
+      --ibm-red: #da1e28;
+      --ibm-red-10: #fff1f1;
+      --ibm-green: #24a148;
+      --ibm-green-10: #defbe6;
+      --ibm-yellow: #f1c21b;
+      --ibm-yellow-10: #fcf4d6;
+      --mono: 'IBM Plex Mono', monospace;
+      --sans: 'IBM Plex Sans', sans-serif;
     }
 
     body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: var(--sans);
-        font-size: 14px;
-        height: 100vh;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
+      background: var(--ibm-gray-10);
+      color: var(--ibm-gray-100);
+      font-family: var(--sans);
+      font-size: 14px;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     /* HEADER */
     header {
-      padding: 0 2rem;
-      height: 56px;
-      border-bottom: 1px solid var(--border);
+      height: 48px;
+      background: var(--ibm-gray-100);
       display: flex;
       align-items: center;
+      padding: 0 1.5rem;
       gap: 1rem;
-      background: rgba(10,10,15,0.8);
-      backdrop-filter: blur(12px);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      flex-shrink: 0;
     }
 
-    .logo {
+    .ibm-logo {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.75rem;
     }
 
-    .logo-icon {
-      width: 28px;
-      height: 28px;
-      background: var(--accent);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: white;
+    .ibm-wordmark {
       font-family: var(--mono);
-    }
-
-    .logo-text {
-      font-size: 0.85rem;
+      font-size: 1rem;
       font-weight: 500;
-      color: var(--text);
+      color: var(--ibm-white);
+      letter-spacing: 0.15em;
     }
 
-    .logo-sub {
-      font-size: 0.72rem;
-      color: var(--text-3);
-      font-family: var(--mono);
+    .header-divider {
+      width: 1px;
+      height: 20px;
+      background: var(--ibm-gray-70);
+    }
+
+    .header-title {
+      color: var(--ibm-gray-30);
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.02em;
     }
 
     .header-right {
@@ -92,23 +89,21 @@
       gap: 1rem;
     }
 
-    .dataset-badge {
+    .api-tag {
       font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--accent-2);
-      background: var(--accent-glow);
-      border: 1px solid rgba(99,102,241,0.3);
-      padding: 0.25rem 0.75rem;
-      border-radius: 100px;
-      letter-spacing: 0.05em;
+      font-size: 0.65rem;
+      color: var(--ibm-blue-light);
+      border: 1px solid var(--ibm-gray-70);
+      padding: 0.2rem 0.65rem;
+      letter-spacing: 0.06em;
     }
 
     .status {
       display: flex;
       align-items: center;
       gap: 0.4rem;
-      font-size: 0.7rem;
-      color: var(--text-3);
+      font-size: 0.68rem;
+      color: var(--ibm-gray-50);
       font-family: var(--mono);
     }
 
@@ -116,8 +111,7 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 6px var(--green);
+      background: var(--ibm-green);
       animation: pulse 2s ease-in-out infinite;
     }
 
@@ -126,128 +120,161 @@
       50% { opacity: 0.4; }
     }
 
+    /* PROGRESS BAR */
+    .progress {
+      height: 2px;
+      background: var(--ibm-gray-20);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--ibm-blue);
+      width: 0;
+    }
+
+    .progress-fill.active {
+      animation: progress 1.5s ease-in-out infinite;
+    }
+
+    @keyframes progress {
+      0% { transform: translateX(-100%); width: 60%; }
+      100% { transform: translateX(200%); width: 60%; }
+    }
+
     /* LAYOUT */
     .layout {
       display: grid;
       grid-template-columns: 280px 1fr;
       flex: 1;
       overflow: hidden;
-      height: calc(100vh - 56px);
+      min-height: 0;
     }
 
     /* SIDEBAR */
     .sidebar {
-      border-right: 1px solid var(--border);
-      background: var(--surface);
+      background: var(--ibm-white);
+      border-right: 1px solid var(--ibm-gray-20);
       overflow-y: auto;
-      padding: 1.5rem 1.25rem;
+      padding: 0;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
     }
 
-    .sidebar-section-title {
+    .sidebar-section {
+      padding: 1.25rem 1rem;
+      border-bottom: 1px solid var(--ibm-gray-20);
+    }
+
+    .section-label {
       font-family: var(--mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.12em;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--text-3);
+      color: var(--ibm-gray-50);
       margin-bottom: 0.75rem;
     }
 
     .suggestion-list {
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
+      gap: 0.25rem;
     }
 
     .suggestion {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.65rem 0.85rem;
+      padding: 0.6rem 0.75rem;
       font-size: 0.75rem;
-      color: var(--text-2);
+      color: var(--ibm-gray-70);
       cursor: pointer;
-      transition: all 0.15s;
+      transition: all 0.1s;
       line-height: 1.4;
+      border-left: 2px solid transparent;
     }
 
     .suggestion:hover {
-      background: var(--surface-3);
-      border-color: var(--accent);
-      color: var(--text);
-    }
-
-    .columns-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-    }
-
-    .col-tag {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      color: var(--text-3);
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
+      background: var(--ibm-blue-10);
+      border-left-color: var(--ibm-blue);
+      color: var(--ibm-blue-dark);
     }
 
     .tools-list {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0;
     }
 
     .tool-item {
       display: flex;
       align-items: flex-start;
-      gap: 0.6rem;
-      padding: 0.6rem 0.75rem;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      gap: 0.75rem;
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid var(--ibm-gray-10);
+      transition: background 0.1s;
     }
 
-    .tool-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      margin-top: 4px;
+    .tool-item:last-child { border-bottom: none; }
+    .tool-item:hover { background: var(--ibm-gray-10); }
+
+    .tool-number {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--ibm-blue);
+      background: var(--ibm-blue-10);
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
+      margin-top: 1px;
     }
 
     .tool-name {
       font-family: var(--mono);
       font-size: 0.68rem;
-      color: var(--accent-2);
+      color: var(--ibm-gray-100);
       margin-bottom: 0.15rem;
+      font-weight: 500;
     }
 
     .tool-desc {
       font-size: 0.68rem;
-      color: var(--text-3);
+      color: var(--ibm-gray-50);
       line-height: 1.4;
     }
 
-    /* MAIN CHAT */
+    .columns-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .col-tag {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--ibm-gray-70);
+      background: var(--ibm-gray-10);
+      border: 1px solid var(--ibm-gray-20);
+      padding: 0.15rem 0.45rem;
+    }
+
+    /* MAIN */
     .main {
       display: flex;
       flex-direction: column;
       overflow: hidden;
       height: 100%;
+      background: var(--ibm-gray-10);
     }
 
     .chat-area {
       flex: 1;
       overflow-y: auto;
-      padding: 2rem;
+      padding: 1.5rem 2rem;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.25rem;
       scroll-behavior: smooth;
       min-height: 0;
     }
@@ -259,38 +286,41 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      gap: 1rem;
-      color: var(--text-3);
+      gap: 0.75rem;
+      color: var(--ibm-gray-50);
       padding: 4rem;
     }
 
     .empty-icon {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
+      opacity: 0.6;
     }
 
     .empty-title {
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--text-2);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--ibm-gray-70);
+      letter-spacing: 0.01em;
     }
 
     .empty-sub {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       max-width: 320px;
       line-height: 1.7;
+      color: var(--ibm-gray-50);
     }
 
     /* MESSAGES */
     .message {
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
-      animation: fadeUp 0.25s ease;
+      gap: 0.35rem;
+      animation: fadeUp 0.2s ease;
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(8px); }
+      from { opacity: 0; transform: translateY(6px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
@@ -303,7 +333,6 @@
     .msg-avatar {
       width: 22px;
       height: 22px;
-      border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -313,33 +342,46 @@
       flex-shrink: 0;
     }
 
-    .msg-avatar.user  { background: var(--surface-3); color: var(--text-2); border: 1px solid var(--border-2); }
-    .msg-avatar.agent { background: var(--accent); color: white; }
+    .msg-avatar.user {
+      background: var(--ibm-gray-20);
+      color: var(--ibm-gray-70);
+    }
+
+    .msg-avatar.agent {
+      background: var(--ibm-blue);
+      color: white;
+    }
 
     .msg-role {
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       font-family: var(--mono);
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--text-3);
+      color: var(--ibm-gray-50);
     }
 
     .msg-bubble {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
+      background: var(--ibm-white);
+      border: 1px solid var(--ibm-gray-20);
+      border-left: 3px solid var(--ibm-gray-20);
       padding: 1rem 1.25rem;
       font-size: 0.85rem;
       line-height: 1.75;
-      color: var(--text);
+      color: var(--ibm-gray-100);
       max-width: 820px;
       white-space: pre-wrap;
       word-break: break-word;
     }
 
+    .message.agent .msg-bubble {
+      border-left-color: var(--ibm-blue);
+    }
+
     .message.user .msg-bubble {
-      background: var(--surface-2);
-      border-color: var(--border-2);
+      background: var(--ibm-blue);
+      border: none;
+      border-left: 3px solid var(--ibm-blue-dark);
+      color: white;
       align-self: flex-end;
       max-width: 600px;
     }
@@ -348,50 +390,49 @@
       border-collapse: collapse;
       width: 100%;
       margin: 0.75rem 0;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
     }
 
     .msg-bubble th {
-      background: var(--surface-3);
+      background: var(--ibm-gray-100);
+      color: white;
       padding: 0.5rem 0.75rem;
       text-align: left;
       font-weight: 500;
-      border: 1px solid var(--border-2);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
       font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--text-2);
     }
 
     .msg-bubble td {
       padding: 0.4rem 0.75rem;
-      border: 1px solid var(--border);
-      color: var(--text-2);
+      border-bottom: 1px solid var(--ibm-gray-20);
+      color: var(--ibm-gray-70);
     }
 
-    .msg-bubble strong { color: var(--text); }
-    .msg-bubble em { color: var(--accent-2); font-style: normal; }
+    .msg-bubble tr:hover td { background: var(--ibm-blue-10); }
+    .msg-bubble strong { color: var(--ibm-gray-100); font-weight: 600; }
     .msg-bubble code {
       font-family: var(--mono);
       font-size: 0.78rem;
-      background: var(--surface-3);
+      background: var(--ibm-gray-10);
       padding: 0.1rem 0.4rem;
-      border-radius: 4px;
-      color: var(--accent-2);
+      color: var(--ibm-blue-dark);
+      border: 1px solid var(--ibm-gray-20);
     }
 
     /* TYPING */
     .typing-bubble {
       display: flex;
-      gap: 5px;
+      gap: 4px;
       align-items: center;
-      padding: 1rem 1.25rem;
+      padding: 0.25rem 0;
     }
 
     .typing-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--text-3);
+      width: 6px;
+      height: 6px;
+      background: var(--ibm-blue);
       animation: bounce 1.2s ease-in-out infinite;
     }
 
@@ -403,38 +444,34 @@
       40% { transform: scale(1); opacity: 1; }
     }
 
-    .tool-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
+    .error-msg {
+      background: var(--ibm-red-10);
+      border-left: 3px solid var(--ibm-red);
+      padding: 0.75rem 1rem;
+      font-size: 0.78rem;
+      color: var(--ibm-red);
       font-family: var(--mono);
-      font-size: 0.65rem;
-      color: var(--accent-2);
-      background: var(--accent-glow);
-      border: 1px solid rgba(99,102,241,0.2);
-      padding: 0.2rem 0.6rem;
-      border-radius: 100px;
-      margin-bottom: 0.5rem;
     }
 
     /* INPUT BAR */
     .input-bar {
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--ibm-gray-20);
       padding: 1rem 2rem;
-      background: var(--surface);
+      background: var(--ibm-white);
       display: flex;
-      gap: 0.75rem;
-      align-items: flex-end;
+      gap: 0;
+      align-items: flex-start;
+      flex-shrink: 0;
     }
 
     .input-wrap { flex: 1; }
 
     textarea {
       width: 100%;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--text);
+      background: var(--ibm-gray-10);
+      border: 1px solid var(--ibm-gray-30);
+      border-right: none;
+      color: var(--ibm-gray-100);
       font-family: var(--sans);
       font-size: 0.85rem;
       line-height: 1.6;
@@ -443,68 +480,35 @@
       height: 48px;
       max-height: 160px;
       outline: none;
-      transition: border-color 0.2s;
+      transition: border-color 0.1s;
     }
 
-    textarea:focus { border-color: var(--accent); }
-    textarea::placeholder { color: var(--text-3); }
+    textarea:focus { border-color: var(--ibm-blue); }
+    textarea::placeholder { color: var(--ibm-gray-50); }
 
     .input-hint {
-      font-size: 0.65rem;
-      color: var(--text-3);
+      font-size: 0.62rem;
+      color: var(--ibm-gray-50);
       margin-top: 0.4rem;
       font-family: var(--mono);
+      letter-spacing: 0.04em;
     }
 
     .btn-send {
       width: 48px;
       height: 48px;
-      background: var(--accent);
+      background: var(--ibm-blue);
       border: none;
-      border-radius: 10px;
       color: white;
       font-size: 1.1rem;
       cursor: pointer;
-      transition: opacity 0.2s, transform 0.15s;
+      transition: background 0.1s;
       flex-shrink: 0;
     }
 
-    .btn-send:hover { opacity: 0.85; }
-    .btn-send:active { transform: scale(0.95); }
-    .btn-send:disabled { opacity: 0.3; cursor: not-allowed; }
-
-    /* PROGRESS */
-    .progress {
-      height: 2px;
-      background: var(--border);
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      width: 0;
-      transition: width 0.3s;
-    }
-
-    .progress-fill.active {
-      animation: progress 1.5s ease-in-out infinite;
-    }
-
-    @keyframes progress {
-      0% { transform: translateX(-100%); width: 60%; }
-      100% { transform: translateX(200%); width: 60%; }
-    }
-
-    .error-msg {
-      background: rgba(239,68,68,0.08);
-      border: 1px solid rgba(239,68,68,0.2);
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-      font-size: 0.78rem;
-      color: #f87171;
-      font-family: var(--mono);
-    }
+    .btn-send:hover { background: var(--ibm-blue-dark); }
+    .btn-send:active { background: #002d9c; }
+    .btn-send:disabled { background: var(--ibm-gray-30); cursor: not-allowed; }
 
     @media (max-width: 768px) {
       .layout { grid-template-columns: 1fr; }
@@ -515,18 +519,16 @@
 <body>
 
 <header>
-  <div class="logo">
-    <div class="logo-icon">AI</div>
-    <div>
-      <div class="logo-text">HR Analytics Agent</div>
-      <div class="logo-sub">IBM Dataset · 1,470 empleados</div>
-    </div>
+  <div class="ibm-logo">
+    <span class="ibm-wordmark">IBM</span>
+    <div class="header-divider"></div>
+    <span class="header-title">HR Analytics Intelligence</span>
   </div>
   <div class="header-right">
-    <div class="dataset-badge">claude haiku · tool use</div>
+    <div class="api-tag">claude haiku · tool use · 1,470 empleados</div>
     <div class="status">
       <div class="status-dot"></div>
-      <span>activo</span>
+      <span>online</span>
     </div>
   </div>
 </header>
@@ -535,11 +537,11 @@
 
 <div class="layout">
   <aside class="sidebar">
-    <div>
-      <div class="sidebar-section-title">Preguntas sugeridas</div>
+    <div class="sidebar-section">
+      <div class="section-label">Consultas sugeridas</div>
       <div class="suggestion-list">
         <div class="suggestion" onclick="usarSugerencia(this)">¿Qué departamento tiene mayor tasa de attrition?</div>
-        <div class="suggestion" onclick="usarSugerencia(this)">¿Cuál es el promedio de salario mensual por nivel de trabajo?</div>
+        <div class="suggestion" onclick="usarSugerencia(this)">¿Cuál es el promedio de salario por nivel de trabajo?</div>
         <div class="suggestion" onclick="usarSugerencia(this)">¿Cómo se distribuye el overtime entre empleados que se fueron?</div>
         <div class="suggestion" onclick="usarSugerencia(this)">Analizá la satisfacción laboral del departamento de Sales</div>
         <div class="suggestion" onclick="usarSugerencia(this)">¿Qué relación hay entre años en la empresa y attrition?</div>
@@ -547,32 +549,32 @@
       </div>
     </div>
 
-    <div>
-      <div class="sidebar-section-title">Herramientas disponibles</div>
+    <div class="sidebar-section">
+      <div class="section-label">Herramientas del agente</div>
       <div class="tools-list">
         <div class="tool-item">
-          <div class="tool-dot"></div>
+          <div class="tool-number">01</div>
           <div>
             <div class="tool-name">obtener_estadisticas</div>
-            <div class="tool-desc">Estadísticas descriptivas de una columna</div>
+            <div class="tool-desc">Estadísticas descriptivas de cualquier columna</div>
           </div>
         </div>
         <div class="tool-item">
-          <div class="tool-dot"></div>
+          <div class="tool-number">02</div>
           <div>
             <div class="tool-name">comparar_grupos</div>
-            <div class="tool-desc">Compara valores entre grupos</div>
+            <div class="tool-desc">Compara valores promedio entre grupos</div>
           </div>
         </div>
         <div class="tool-item">
-          <div class="tool-dot"></div>
+          <div class="tool-number">03</div>
           <div>
             <div class="tool-name">contar_por_categoria</div>
             <div class="tool-desc">Distribución de attrition por categoría</div>
           </div>
         </div>
         <div class="tool-item">
-          <div class="tool-dot"></div>
+          <div class="tool-number">04</div>
           <div>
             <div class="tool-name">filtrar_y_analizar</div>
             <div class="tool-desc">Filtra el dataset y analiza una columna</div>
@@ -581,8 +583,8 @@
       </div>
     </div>
 
-    <div>
-      <div class="sidebar-section-title">Columnas del dataset</div>
+    <div class="sidebar-section">
+      <div class="section-label">Columnas disponibles</div>
       <div class="columns-list">
         <span class="col-tag">Age</span>
         <span class="col-tag">Attrition</span>
@@ -609,8 +611,8 @@
     <div class="chat-area" id="chatArea">
       <div class="empty-state" id="emptyState">
         <div class="empty-icon">📊</div>
-        <div class="empty-title">Agente de análisis de RRHH</div>
-        <div class="empty-sub">Hacé preguntas en lenguaje natural sobre el dataset de IBM. El agente usa herramientas de pandas para analizar los datos y responde con insights concretos.</div>
+        <div class="empty-title">IBM HR Analytics Intelligence</div>
+        <div class="empty-sub">Consultá en lenguaje natural sobre el dataset de RRHH de IBM. El agente usa herramientas de análisis de datos para responder con insights accionables sobre attrition, compensación y satisfacción laboral.</div>
       </div>
     </div>
 
@@ -618,7 +620,7 @@
       <div class="input-wrap">
         <textarea
           id="inputMsg"
-          placeholder="Hacé una pregunta sobre el dataset..."
+          placeholder="Ingresá tu consulta sobre el dataset de RRHH..."
           rows="1"
         ></textarea>
         <div class="input-hint">Enter para enviar · Shift+Enter para nueva línea</div>
@@ -650,7 +652,8 @@
       .replace(/\|(.+)\|/g, (match) => {
         const cells = match.split('|').filter(c => c.trim())
         if (cells.every(c => /^[-\s]+$/.test(c))) return ''
-        const tag = cells[0] && cells[0].includes('**') ? 'th' : 'td'
+        const isHeader = cells.some(c => c.includes('**'))
+        const tag = isHeader ? 'th' : 'td'
         return '<tr>' + cells.map(c => `<${tag}>${c.trim().replace(/\*\*/g, '')}</${tag}>`).join('') + '</tr>'
       })
       .replace(/(<tr>.*<\/tr>\n?)+/gs, (match) => `<table>${match}</table>`)
@@ -664,8 +667,8 @@
     const div = document.createElement('div')
     div.className = `message ${role}`
 
-    const label = role === 'user' ? 'vos' : 'agente'
-    const avatarText = role === 'user' ? 'U' : 'AI'
+    const label = role === 'user' ? 'usuario' : 'agente ibm'
+    const avatarText = role === 'user' ? 'U' : 'IBM'
 
     div.innerHTML = `
       <div class="msg-header">
@@ -688,8 +691,8 @@
     div.className = 'message agent'
     div.innerHTML = `
       <div class="msg-header">
-        <div class="msg-avatar agent">AI</div>
-        <span class="msg-role">agente · analizando</span>
+        <div class="msg-avatar agent">IBM</div>
+        <span class="msg-role">agente · procesando</span>
       </div>
       <div class="msg-bubble">
         <div class="typing-bubble">
@@ -708,7 +711,7 @@
     const chat = document.getElementById('chatArea')
     const div = document.createElement('div')
     div.className = 'error-msg'
-    div.textContent = `error: ${msg}`
+    div.textContent = msg
     chat.appendChild(div)
     chat.scrollTop = chat.scrollHeight
   }
@@ -739,7 +742,7 @@
 
     } catch (e) {
       typing.remove()
-      agregarError('No se pudo conectar con el servidor. Verificá que esté corriendo.')
+      agregarError('Error de conexión. Verificá que el servidor esté activo en http://127.0.0.1:8000')
     } finally {
       setLoading(false)
     }
