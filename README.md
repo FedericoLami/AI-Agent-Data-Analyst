@@ -124,8 +124,8 @@ Recibe una pregunta en lenguaje natural y devuelve el análisis del agente.
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/tu-usuario/agente-analisis-datos.git
-cd agente-analisis-datos
+git clone https://github.com/FedericoLami/AI-Agent-Data-Analyst.git
+cd AI-Agent-Data-Analyst
 
 # 2. Crear y activar entorno virtual
 py -3.11 -m venv venv
